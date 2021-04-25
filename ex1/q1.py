@@ -71,13 +71,3 @@ q1C = create_wave_and_dft(sf=50, duration=5, A=[1], f=[5], label="duration 5, no
 # the dot product of both 4 and 6hz sinewaves with our wave resulted in the same normalizred power as all other frequencies.
 # so in this case - zeropadding did help because it increased the resolution (or convolved a constant value with a sinc)
 
-
-dst = t[25::25]
-dssinewave = wave[25::25]
-
-plt.plot(t, wave);
-plt.plot(dst, dssinewave);
-
-fft = np.abs(scipy.fft(wave))
-freqs = np.fft.fftfreq(fft.size, t[1] - t[0])
-plt.plot(freqs, 2 * fft / fft.size)
